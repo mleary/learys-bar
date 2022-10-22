@@ -1,0 +1,14 @@
+---
+title: "Leary's Bar"
+author: "Matt Leary"
+date: "2022-10-22"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Learys Bar
+
+Initial placeholder.
