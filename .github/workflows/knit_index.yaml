@@ -7,10 +7,9 @@ on:
     paths-ignore: # Don't trigger on files that are updated by the CI
       - '.gitignore'
       - 'README.md'
-      - '.github/**'
  
 jobs:
-  run-rmarkdown:
+  render-index:
     runs-on: windows-latest
     
     steps:
@@ -21,7 +20,7 @@ jobs:
     - uses: r-lib/actions/setup-pandoc@v1
     - name: Run gh_actions_run_script.R
       run: Rscript ./scripts/gh_actions_run_script.R
-    - name: commit rendered README
+    - name: commit rendered index.html
       run: |
         git config --local user.name github-actions
         git config --local user.email "actions@github.com"
