@@ -6,5 +6,5 @@ library(checkpoint)
 checkpoint::checkpoint(
   "2022-10-01",
   R.version = '4.1.2',
-  checkpointLocation = here::here()
+  checkpoint_location = here::here()
 )
