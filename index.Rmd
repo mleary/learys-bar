@@ -1,24 +1,27 @@
 ---
-title: "Leary's Bar"
-author: "Matt Leary"
-date: "2022-10-22"
-output: 
-  html_document:
-    toc: true
-    toc_depth: 2
+title: "index"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-source("./data/decanter-data.R")
-```
 
-## Welcome!
+:::: {style="display: flex;"}
+
+::: {}
+![](./images/learys-bar-logo.jpeg){width=50%}
+
+:::
+
+::: {}
+
+
+## Current Spirits
 
 Welcome to my home bar!  If you find yourself looking at one of three decanters at my home bar, you should know one of them is poisoned.  The secret to discovering which one, is below.
 
 Just kidding.  I typically keep different spirits in each decanter, normally a house bourbon, a "sipping" bourbon, and a scotch. The house bourbon is typically a cheaper bourbon that is good for cocktails.  
 
+:::
+
+::::
 
 ![](./images/decanters.jpeg)
 
