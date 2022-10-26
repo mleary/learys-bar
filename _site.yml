@@ -10,7 +10,7 @@ navbar:
       href: current-spirits.html
     - text: "Cocktail Recipes"
       icon: fa-wine-glass
-      href: https://github.com/mleary/learys-bar
+      href: cocktail-recipes.html
   right:
     - icon: fa-github
       href: https://github.com/mleary/learys-bar         
