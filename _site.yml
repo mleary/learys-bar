@@ -1,6 +1,7 @@
 name: "Leary's Bar"
 output: 
   html_document:
+    css: styles/styles.css
 output_dir: "."
 navbar:
   title: "Leary's bar" 
@@ -13,6 +14,7 @@ navbar:
       href: cocktail-recipes.html
   right:
     - icon: fa-github
-      href: https://github.com/mleary/learys-bar         
+      href: https://github.com/mleary/learys-bar    
+    - icon: "images/learys-bar-logo.jpeg"
 
 

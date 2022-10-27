@@ -2,22 +2,11 @@
 title: "&nbsp;"
 ---
 
-:::: {style="display: flex;"}
+<center>
+![](./images/learys-bar-logo.jpeg){width=95%}
+</center>
 
-::: {}
-![](./images/learys-bar-logo.jpeg){width=50%}
-
-:::
-
-::: {}
-
-
-## Current Spirits
 
 Welcome to my home bar!  If you find yourself looking at one of three decanters at my home bar, you should know one of them is poisoned.  The secret to discovering which one, is below.
 
-Just kidding.  I typically keep different spirits in each decanter, normally a house bourbon, a "sipping" bourbon, and a scotch. The house bourbon is typically a cheaper bourbon that is good for cocktails.  
-
-:::
-
-::::
+Just kidding.  I typically keep different spirits in each decanter, normally a house bourbon, a "sipping" bourbon, and a scotch. The house bourbon is typically a cheaper bourbon that is good for cocktails. 

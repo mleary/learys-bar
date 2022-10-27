@@ -1,0 +1,25 @@
+
+.navbar {
+  background-color:#132257;
+  border-color:#132257;
+}
+
+.navbar-brand {
+  color:white!important;
+}
+
+
+a.dropdown-toggle:hover {
+  background-color: #132257 !important;
+}
+
+ #header.fluid-row::before {
+   content: "";
+   height: 150px;
+   width: 150px;
+   float: right;
+   background-image: .images/learys-bar-logo.jpeg;
+   background-size: contain;
+   background-position: center center;
+   background-repeat: no-repeat;
+ }
