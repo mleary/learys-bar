@@ -7,5 +7,4 @@ Quick website for my home bar
 
 ## TODO List
 
-* Fix logo sizing across pags
-* Look at changing out navbar colors (might need to change links then)
+* Add logo across all pages?
