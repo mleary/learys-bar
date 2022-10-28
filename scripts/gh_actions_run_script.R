@@ -5,5 +5,5 @@
 print(getwd()) # test that wd is properly working
 
 rmarkdown::render(
-  input = "./index.Rmd",
+  input = "./current-spirits.Rmd",
 )
