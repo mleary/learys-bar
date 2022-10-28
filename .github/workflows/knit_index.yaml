@@ -4,9 +4,12 @@ on:
   push:
     branches:
       - main
-    paths-ignore: # Don't trigger on files that are updated by the CI
-      - '.gitignore'
-      - 'README.md'
+    paths: data/decanter-data.R
+    # paths-ignore: # Don't trigger on files that are updated by the CI
+    #  - '.gitignore'
+    #  - 'README.md'
+    #  Note: used to trigger on all changes EXCEPT for a few files.  
+    #        Changing this to only run when the data file is changed
  
 jobs:
   render-index:
@@ -20,12 +23,12 @@ jobs:
     - uses: r-lib/actions/setup-pandoc@v1
     - name: Run gh_actions_run_script.R
       run: Rscript ./scripts/gh_actions_run_script.R
-    - name: commit rendered index.html
+    - name: commit rendered files
       run: |
         git config --local user.name github-actions
         git config --local user.email "actions@github.com"
-        git add index.html 
-        git commit -m "Re-build index.html"
+        git add --all
+        git commit -m "Adding new html files via gh actions"
         git push origin main 
       env:
         REPO_KEY: ${{secrets.GITHUB_TOKEN}}

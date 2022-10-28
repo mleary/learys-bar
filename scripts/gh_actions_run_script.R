@@ -4,6 +4,4 @@
 
 print(getwd()) # test that wd is properly working
 
-rmarkdown::render(
-  input = "./current-spirits.Rmd",
-)
+rmarkdown::render_site()
