@@ -4,12 +4,14 @@ title: "Current Spirits"
 
 ```{r, include=FALSE}
 source("./data/decanter-data.R")
+library(DT)
+library(dplyr)
 ```
 
-As I change out the decanter contents, I will update it here. For those that know me and aren't tech people (probably finding your way here from the QR code on the bar), it's pretty cool that I can automatically update this website via my phone and Github Actions*.  
+As I change out the decanter contents, I will update it here. For those that know me and aren't tech people (probably finding your way here from the QR code on the bar), it's pretty cool that I can automatically update this website via my phone and Github Actions.  
 
 
-#### Current Decanter lineup
+## Current Decanter lineup
 
 ***House Bourbon:*** `r HOUSE_BOURBON`  
 ***Sipping Bourbon:*** `r SIPPING_BOURBON`       
@@ -18,8 +20,36 @@ As I change out the decanter contents, I will update it here. For those that kno
 
 ![](./images/decanters.jpeg)
 
+## Additional spirits
 
-    
+
+```{r, echo=FALSE}
+df <- read.csv("./data/bottle-data.csv", colClasses = "character", na.strings = "-")
+
+create_table_by_type <- function(df, spirit) {
+   
+  df %>% 
+    dplyr::filter(Type == spirit) %>% 
+    dplyr::select(-Type) %>% 
+    DT::datatable() 
+}
 
 
-*Let me know if you want to know more about my exploration into using Github Actions!
+```
+
+<br>
+<hr>
+### Bourbon
+
+```{r, echo=FALSE}
+create_table_by_type(df, "Bourbon")
+```
+
+<br>
+<hr>
+### Scotch
+```{r, echo=FALSE}
+create_table_by_type(df, "Scotch")
+
+```
+
