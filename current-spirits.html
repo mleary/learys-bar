@@ -13,7 +13,6 @@
 
 <title>Current Spirits</title>
 
-<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -34,7 +33,7 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="site_libs/datatables-binding-0.24/datatables.js"></script>
+<script src="site_libs/datatables-binding-0.25/datatables.js"></script>
 <link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
 <script src="site_libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
@@ -152,11 +151,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -298,18 +301,12 @@ $(document).ready(function () {
 </div>
 
 
-<p>As I change out the decanter contents, I will update it here. For
-those that know me and aren’t tech people (probably finding your way
-here from the QR code on the bar), it’s pretty cool that I can
-automatically update this website via my phone and Github Actions.</p>
+<p>As I change out the decanter contents, I will update it here. For those that know me and aren’t tech people (probably finding your way here from the QR code on the bar), it’s pretty cool that I can automatically update this website via my phone and Github Actions.</p>
 <div id="current-decanter-lineup" class="section level2">
 <h2>Current Decanter lineup</h2>
-<p><strong><em>House Bourbon:</em></strong> Evan Williams
-Bottled-in-Bond (White Label)<br />
-<strong><em>Sipping Bourbon:</em></strong> Maker’s Mark No. 46 (French
-Oaked)<br />
-<strong><em>Scotch:</em></strong> GlenDoranch Distillery (Highland - do
-not recall exact bottle)</p>
+<p><strong><em>House Bourbon:</em></strong> Evan Williams Bottled-in-Bond (White Label)<br />
+<strong><em>Sipping Bourbon:</em></strong> Maker’s Mark No. 46 (French Oaked)<br />
+<strong><em>Scotch:</em></strong> GlenDoranch Distillery (Highland - do not recall exact bottle)</p>
 <p><img src="images/decanters.jpeg" /></p>
 </div>
 <div id="additional-spirits" class="section level2">
@@ -318,15 +315,15 @@ not recall exact bottle)</p>
 <hr>
 <div id="bourbon" class="section level3">
 <h3>Bourbon</h3>
-<div id="htmlwidget-0abac28e2fcbf290e2c0" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0abac28e2fcbf290e2c0">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Elijah Craig (Barrel Proof)","Elijah Craig (Toasted Barrel)","I.W. Harper (Cabernet Cask)","Sazerac Rye"],["135.2","94","90","90"],["","","",""],["","1","1","1"],["3","","1",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Proof<\/th>\n      <th>Low<\/th>\n      <th>Opened<\/th>\n      <th>Unopened<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-41aae6a07e21a3495a3e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-41aae6a07e21a3495a3e">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Elijah Craig (Barrel Proof)","Elijah Craig (Toasted Barrel)","I.W. Harper (Cabernet Cask)","Sazerac Rye"],["135.2","94","90","90"],["","","",""],["","1","1","1"],["3","","1",""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Proof<\/th>\n      <th>Low<\/th>\n      <th>Opened<\/th>\n      <th>Unopened<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <br>
 <hr>
 </div>
 <div id="scotch" class="section level3">
 <h3>Scotch</h3>
-<div id="htmlwidget-03425ece882ebdd00be6" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-03425ece882ebdd00be6">{"x":{"filter":"none","vertical":false,"data":[["1"],[" Lagavulin (8 year)"],["96"],[""],["1"],[""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Proof<\/th>\n      <th>Low<\/th>\n      <th>Opened<\/th>\n      <th>Unopened<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0e351685f982d278519d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0e351685f982d278519d">{"x":{"filter":"none","vertical":false,"data":[["1"],[" Lagavulin (8 year)"],["96"],[""],["1"],[""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Proof<\/th>\n      <th>Low<\/th>\n      <th>Opened<\/th>\n      <th>Unopened<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
