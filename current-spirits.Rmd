@@ -3,9 +3,10 @@ title: "Current Spirits"
 ---
 
 ```{r, include=FALSE}
+.libPaths("./.checkpoint/2022-10-01/lib/x86_64-apple-darwin17.0/4.1.2/")
 source("./data/decanter-data.R")
-library(DT)
-library(dplyr)
+library(gt)
+library(gtExtras)
 ```
 
 As I change out the decanter contents, I will update it here. For those that know me and aren't tech people (probably finding your way here from the QR code on the bar), it's pretty cool that I can automatically update this website via my phone and Github Actions.  
@@ -22,24 +23,64 @@ As I change out the decanter contents, I will update it here. For those that kno
 
 ## Additional spirits
 
-
 ```{r, echo=FALSE}
+## Prep data
 df <- read.csv("./data/bottle-data.csv", colClasses = "character", na.strings = "-")
 
-create_table_by_type <- function(df, spirit) {
-   
-  df %>% 
-    dplyr::filter(Type == spirit) %>% 
-    dplyr::select(-Type) %>% 
-    DT::datatable() 
-}
+unique_spirits <- df %>% 
+  dplyr::filter(Type != "Bourbon", Type != "Scotch") %>% 
+  dplyr::pull(Type) %>% 
+  unique()
 
+uniqe_spirits <- c("Bourbon", "Scotch", unique_spirits)
+
+```
+
+```{r echo=FALSE}
+## Function
+## 
+## 
+create_table_by_type <- function(df, spirit = "All Other") {
+  if (spirit == "All Other") {
+    df <- df %>% 
+      dplyr::filter(Type != "Bourbon", Type != "Scotch") %>% 
+      dplyr::arrange(Type) %>% 
+      dplyr::rename(Proof = Type,
+                    Type = Proof)
+  } else {
+    df <- df %>% 
+      dplyr::filter(Type == spirit) %>% 
+      dplyr::select(-Type)     
+  }
+  
+ tab <-  df %>% 
+   gt(id= "tab") %>%
+   tab_header(paste(spirit, " botles on hand")) %>% 
+   cols_width(
+     Bottle ~ px(200),
+     Low ~ px(125),
+     Opened ~ px(125),
+     Unopened ~ px(125)
+   ) 
+   
+
+tab %>% 
+  gtExtras::gt_theme_espn() %>% 
+  gtExtras::gt_fa_repeats(column='Low', palette = "Red", 
+                          name = "wine-bottle", align = "center") %>%
+  gtExtras::gt_fa_repeats(column='Opened',  palette = "Green", 
+                          name = "wine-bottle", align = "center") %>%
+  gtExtras::gt_fa_repeats(column='Unopened',palette = "Green", 
+                          name = "bottle-droplet", align = "center") %>%
+  gtExtras::gt_merge_stack(col1 = Bottle, col2 = Proof)
+
+}
 
 ```
 
 <br>
 <hr>
-### Bourbon
+
 
 ```{r, echo=FALSE}
 create_table_by_type(df, "Bourbon")
@@ -47,9 +88,18 @@ create_table_by_type(df, "Bourbon")
 
 <br>
 <hr>
-### Scotch
+
 ```{r, echo=FALSE}
 create_table_by_type(df, "Scotch")
+```
 
+<br>
+<hr>
+
+```{r, echo=FALSE}
+create_table_by_type(df) %>% 
+    gtExtras::gt_merge_stack(col1 = Bottle, col2 = Type)
+
+  
 ```
 

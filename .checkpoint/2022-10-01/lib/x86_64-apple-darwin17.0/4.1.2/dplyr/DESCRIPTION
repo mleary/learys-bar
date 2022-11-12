@@ -53,9 +53,9 @@ Repository: CRAN
 Date/Publication: 2022-09-01 09:20:06 UTC
 Built: R 4.1.2; x86_64-apple-darwin17.0; 2022-09-02 10:53:46 UTC; unix
 Archs: dplyr.so.dSYM
-RemoteType: cran
-RemotePkgRef: cran::dplyr
-RemoteRef: cran::dplyr
+RemoteType: standard
+RemotePkgRef: dplyr
+RemoteRef: dplyr
 RemoteRepos: https://mran.microsoft.com/snapshot/2022-10-01
 RemotePkgPlatform: x86_64-apple-darwin17.0
 RemoteSha: 1.0.10
