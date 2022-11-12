@@ -2,7 +2,7 @@
 title: "Current Spirits"
 ---
 
-```{r, include=FALSE}
+```{r setup, include=FALSE}
 .libPaths("./.checkpoint/2022-10-01/lib/x86_64-apple-darwin17.0/4.1.2/")
 source("./data/decanter-data.R")
 library(gt)
@@ -23,23 +23,11 @@ As I change out the decanter contents, I will update it here. For those that kno
 
 ## Additional spirits
 
-```{r, echo=FALSE}
+```{r data, echo=FALSE}
 ## Prep data
 df <- read.csv("./data/bottle-data.csv", colClasses = "character", na.strings = "-")
 
-unique_spirits <- df %>% 
-  dplyr::filter(Type != "Bourbon", Type != "Scotch") %>% 
-  dplyr::pull(Type) %>% 
-  unique()
-
-uniqe_spirits <- c("Bourbon", "Scotch", unique_spirits)
-
-```
-
-```{r echo=FALSE}
-## Function
-## 
-## 
+## Create helper function
 create_table_by_type <- function(df, spirit = "All Other") {
   if (spirit == "All Other") {
     df <- df %>% 
@@ -67,7 +55,7 @@ create_table_by_type <- function(df, spirit = "All Other") {
 tab %>% 
   gtExtras::gt_theme_espn() %>% 
   gtExtras::gt_fa_repeats(column='Low', palette = "Red", 
-                          name = "wine-bottle", align = "center") %>%
+                           name = "wine-bottle", align = "center") %>%
   gtExtras::gt_fa_repeats(column='Opened',  palette = "Green", 
                           name = "wine-bottle", align = "center") %>%
   gtExtras::gt_fa_repeats(column='Unopened',palette = "Green", 
@@ -82,21 +70,22 @@ tab %>%
 <hr>
 
 
-```{r, echo=FALSE}
+```{r bourbon, echo=FALSE}
 create_table_by_type(df, "Bourbon")
 ```
 
 <br>
 <hr>
 
-```{r, echo=FALSE}
+```{r scotch, echo=FALSE}
 create_table_by_type(df, "Scotch")
 ```
 
 <br>
 <hr>
 
-```{r, echo=FALSE}
+```{r rest, echo=FALSE}
+
 create_table_by_type(df) %>% 
     gtExtras::gt_merge_stack(col1 = Bottle, col2 = Type)
 
