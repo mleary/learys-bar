@@ -57,10 +57,10 @@ create_table_by_type <- function(df, spirit = "All Other") {
    gt(id= "tab") %>%
    tab_header(paste(spirit, " botles on hand")) %>% 
    cols_width(
-     Bottle ~ px(200),
-     Low ~ px(125),
-     Opened ~ px(125),
-     Unopened ~ px(125)
+     Bottle ~ px(250),
+     Low ~ px(100),
+     Opened ~ px(100),
+     Unopened ~ px(100)
    ) 
    
 
