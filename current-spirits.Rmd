@@ -14,11 +14,11 @@ As I change out the decanter contents, I will update it here. For those that kno
 
 ## Current Decanter lineup
 
-### House Bourbon: `r HOUSE_BOURBON`  
+#### House Bourbon: `r HOUSE_BOURBON`  
 
-### Sipping Bourbon: `r SIPPING_BOURBON`       
+#### Sipping Bourbon: `r SIPPING_BOURBON`       
 
-### Scotch: `r SCOTCH`
+#### Scotch: `r SCOTCH`
 
 
 ![](./images/decanters.jpeg)
