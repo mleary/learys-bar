@@ -6,11 +6,7 @@ on:
       - main
     paths: 
       - data/**
-    # paths-ignore: # Don't trigger on files that are updated by the CI
-    #  - '.gitignore'
-    #  - 'README.md'
-    #  Note: used to trigger on all changes EXCEPT for a few files.  
-    #        Changing this to only run when the data file is changed
+      - '**.Rmd'
  
 jobs:
   render-index:
