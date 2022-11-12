@@ -14,9 +14,11 @@ As I change out the decanter contents, I will update it here. For those that kno
 
 ## Current Decanter lineup
 
-***House Bourbon:*** `r HOUSE_BOURBON`  
-***Sipping Bourbon:*** `r SIPPING_BOURBON`       
-***Scotch:*** `r SCOTCH`
+### House Bourbon: `r HOUSE_BOURBON`  
+
+### Sipping Bourbon: `r SIPPING_BOURBON`       
+
+### Scotch: `r SCOTCH`
 
 
 ![](./images/decanters.jpeg)
@@ -28,8 +30,8 @@ As I change out the decanter contents, I will update it here. For those that kno
 df <- read.csv("./data/bottle-data.csv", colClasses = "character", na.strings = "-")
 
 ## Create helper function
-create_table_by_type <- function(df, spirit = "All Other") {
-  if (spirit == "All Other") {
+create_table_by_type <- function(df, spirit = "All other") {
+  if (spirit == "All other") {
     df <- df %>% 
       dplyr::filter(Type != "Bourbon", Type != "Scotch") %>% 
       dplyr::arrange(Type) %>% 
@@ -43,7 +45,7 @@ create_table_by_type <- function(df, spirit = "All Other") {
   
  tab <-  df %>% 
    gt(id= "tab") %>%
-   tab_header(paste(spirit, " botles on hand")) %>% 
+   tab_header(paste(spirit, " bottles on hand")) %>% 
    cols_width(
      Bottle ~ px(250),
      Low ~ px(100),
