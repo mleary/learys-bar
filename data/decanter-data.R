@@ -2,5 +2,5 @@
 # It is intended to be updated as I refill decanters
 
 HOUSE_BOURBON <- "Evan Williams Bottled-in-Bond (White Label)"
-SIPPING_BOURBON <- "Maker's Mark No. 46 (French Oaked)"
+SIPPING_BOURBON <- "Old Forestor 1897"
 SCOTCH <- "GlenDoranch Distillery (Highland - don't recall exact bottle name)"
